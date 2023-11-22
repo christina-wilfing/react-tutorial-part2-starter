@@ -13,10 +13,10 @@ const usePosts = (userID: number | undefined) =>
     queryKey: userID ? ["users", userID, "posts"] : ["posts"],
     queryFn: () =>
       axios
-        .get<Post[]>("https://jsonplaceholder.typicode.com/posts", {
+        .get("https://jsonplaceholder.typicode.com/posts", {
           params: {
-            userID
-          }
+            userId: userID,
+          },
         })
         .then((res) => res.data),
     staleTime: 60 * 1000,

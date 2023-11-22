@@ -3,7 +3,7 @@ import usePosts from "./hooks/usePosts";
 
 const PostList = () => {
   const [userID, setUser] = useState<number>();
-  const { data: posts, error, isLoading } = usePosts(userID);
+  const { data, error, isLoading } = usePosts(userID);
 
   if (isLoading) return <p>Loading ...</p>;
   if (error) return <p>{error.message}</p>;
@@ -15,13 +15,13 @@ const PostList = () => {
         onChange={(event) => setUser(parseInt(event.target.value))}
         value={userID}
       >
-        <option value=""></option>
+        <option value="">All Posts</option>
         <option value="1">User 1</option>
         <option value="2">User 2</option>
         <option value="3">User 3</option>
       </select>
       <ul className="list-group">
-        {posts?.map((post) => (
+        {data?.map((post) => (
           <li key={post.id} className="list-group-item">
             {post.title}
           </li>
