@@ -15,7 +15,7 @@ const usePosts = (userID: number | undefined) =>
       axios
         .get("https://jsonplaceholder.typicode.com/posts", {
           params: {
-            userId: userID,
+            userId: userID, // API needs key be named 'userId'
           },
         })
         .then((res) => res.data),
