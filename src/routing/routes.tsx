@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "./HomePage";
+import UserDetailPage from "./UserDetailPage";
 import UserListPage from "./UserListPage";
-import ContactPage from "./ContactPage";
 
 const router = createBrowserRouter([
   {
@@ -13,8 +13,8 @@ const router = createBrowserRouter([
     element: <UserListPage />,
   },
   {
-    path: "/contact",
-    element: <ContactPage />,
+    path: "/users/:id",
+    element: <UserDetailPage />,
   },
 ]);
 
